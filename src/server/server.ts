@@ -1,7 +1,9 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import { EchoRequestSchema } from "../shared/schemas";
 import helmet from "helmet";
 import path from "path";
+import { genericErrorHandler, multerErrorHandler } from "./handlers/errors";
+import { mapUploadHandlers } from "./handlers/maps/upload";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -14,14 +16,19 @@ if (process.env.NODE_ENV === "production") {
 app.use(helmet());
 app.use(express.json());
 
-app.post("/api/v1/echo", ({ body }: Request, res: Response) => {
+app.post("/api/v1/echo", ({ body }, res) => {
   const parsed = EchoRequestSchema.safeParse(body);
   if (parsed.success) {
-    res.status(200).json(parsed.data).end();
+    res.status(200).json(parsed.data);
   } else {
-    res.status(400).end();
+    res.status(400);
   }
 });
+
+app.post("/api/v1/maps", mapUploadHandlers);
+
+app.use(multerErrorHandler);
+app.use(genericErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
