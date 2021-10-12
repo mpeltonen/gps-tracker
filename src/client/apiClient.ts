@@ -1,4 +1,4 @@
-import { EchoRequestBody, MapUploadResponse, MapUploadResponseSchema } from "../shared/schemas";
+import { MapUploadResponse, MapUploadResponseSchema } from "../shared/schemas";
 
 const jsonPost = (body: Record<string, any>) => ({
   method: "POST",
@@ -8,11 +8,6 @@ const jsonPost = (body: Record<string, any>) => ({
   },
   body: JSON.stringify(body),
 });
-
-export const echo = async (body: EchoRequestBody) => {
-  const response = await fetch("/api/v1/echo", jsonPost(body));
-  return await response.json();
-};
 
 export const uploadMapFile = async (file: File): Promise<MapUploadResponse> => {
   const formData = new FormData();
