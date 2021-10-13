@@ -27,7 +27,7 @@ app.listen(PORT, () => {
 function serveClient(app: Express) {
   const clientBuildDir = path.join(process.cwd() + "/build/client");
   app.use(express.static(clientBuildDir));
-  app.get("/*", function (req, res) {
+  app.get("/*", function (Ignored, res) {
     res.sendFile(path.join(clientBuildDir, "index.html"));
   });
 }

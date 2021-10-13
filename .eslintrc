@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "all",
+        "varsIgnorePattern": "^jsx$",
+        "argsIgnorePattern": "[Ii]gnored$"
+      }
+    ]
+  }
+}

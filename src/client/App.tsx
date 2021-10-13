@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styles from "./App.module.css";
 import MapFileUpload from "./components/MapFileUpload";
 

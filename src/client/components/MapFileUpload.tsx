@@ -1,7 +1,7 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { uploadMapFile } from "../apiClient";
 
-const MapFileUpload = () => {
+const MapFileUpload: FC = () => {
   const [file, setFile] = useState<File>();
 
   const onFileChange = (evt: ChangeEvent<HTMLInputElement>) => setFile(evt.target.files?.[0]);
