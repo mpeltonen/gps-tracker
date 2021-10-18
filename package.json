@@ -20,9 +20,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "helmet": "^4.6.0",
+    "jotai": "^1.4.0",
+    "leaflet": "^1.7.1",
     "multer": "^1.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.2",
     "react-scripts": "4.0.3",
     "unzipper": "^0.10.11",
     "xml2js": "^0.4.23",
@@ -33,14 +36,15 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@types/multer": "^1.4.7",
-    "@types/xml2js": "^0.4.9",
-    "@types/unzipper": "^0.10.4",
     "@types/express": "^4.17.13",
     "@types/jest": "^26.0.15",
+    "@types/multer": "^1.4.7",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-leaflet": "^2.8.2",
+    "@types/unzipper": "^0.10.4",
+    "@types/xml2js": "^0.4.9",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "concurrently": "^6.3.0",
@@ -56,16 +60,9 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

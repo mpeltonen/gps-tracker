@@ -1,7 +1,13 @@
 import { ChangeEvent, FC, useState } from "react";
 import { uploadMapFile } from "../apiClient";
+import { PrimitiveAtom, useAtom } from "jotai";
 
-const MapFileUpload: FC = () => {
+interface Props {
+  lastMapUploadTimeAtom: PrimitiveAtom<number>;
+}
+
+const MapFileUpload: FC<Props> = ({ lastMapUploadTimeAtom }) => {
+  const [lastMapUploadTime, setLastMapUploadTime] = useAtom(lastMapUploadTimeAtom);
   const [file, setFile] = useState<File>();
 
   const onFileChange = (evt: ChangeEvent<HTMLInputElement>) => setFile(evt.target.files?.[0]);
@@ -9,12 +15,13 @@ const MapFileUpload: FC = () => {
   const uploadFile = async () => {
     if (file) {
       await uploadMapFile(file);
+      setLastMapUploadTime(Date.now());
     }
   };
 
   return (
     <div>
-      <input type="file" accept=".kmz" onChange={onFileChange} />
+      <input key={lastMapUploadTime} type="file" accept=".kmz" onChange={onFileChange} />
       <button onClick={uploadFile} disabled={!file}>
         Upload map file
       </button>
