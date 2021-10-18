@@ -12,7 +12,7 @@ const upload = multer({
   },
 });
 
-export const mapUploadHandlers = [
+export const mapsPostHandlers = [
   upload.single("mapFile"),
   async (req: Request, res: Response, next: NextFunction) => {
     const { file: mapFile } = req;

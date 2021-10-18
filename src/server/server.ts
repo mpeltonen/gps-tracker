@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import helmet from "helmet";
 import path from "path";
 import { genericErrorHandler, multerErrorHandler } from "./handlers/errors";
-import { mapUploadHandlers } from "./handlers/maps/upload";
+import { mapsPostHandlers } from "./handlers/maps/post";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(helmet());
 app.use(express.json());
 
-app.post("/api/v1/maps", mapUploadHandlers);
+app.post("/api/v1/maps", mapsPostHandlers);
 
 app.use(multerErrorHandler);
 app.use(genericErrorHandler);
