@@ -9,7 +9,6 @@ import { trpc } from "./utils/trpc";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const selectedMapAtom = atom<EventMap | null>(null);
-const lastMapUploadTimeAtom = atom<number>(Date.now());
 
 const App: FC = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -22,8 +21,8 @@ const App: FC = () => {
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <div className={styles.container}>
-          <MapFileUpload lastMapUploadTimeAtom={lastMapUploadTimeAtom} />
-          <MapList selectedMapAtom={selectedMapAtom} lastMapUploadTimeAtom={lastMapUploadTimeAtom} />
+          <MapFileUpload />
+          <MapList selectedMapAtom={selectedMapAtom} />
           <MapWrapper selectedMapAtom={selectedMapAtom} />
         </div>
       </QueryClientProvider>
