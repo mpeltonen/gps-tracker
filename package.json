@@ -18,6 +18,9 @@
     "test:server": "echo Server tests TBD"
   },
   "dependencies": {
+    "@trpc/client": "^9.10.1-alpha.5",
+    "@trpc/react": "^9.10.1-alpha.5",
+    "@trpc/server": "^9.10.1-alpha.5",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "jotai": "^1.4.0",
@@ -26,6 +29,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.2.2",
+    "react-query": "^3.27.0",
     "react-scripts": "4.0.3",
     "unzipper": "^0.10.11",
     "xml2js": "^0.4.23",

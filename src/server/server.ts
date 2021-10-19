@@ -3,7 +3,9 @@ import helmet from "helmet";
 import path from "path";
 import { genericErrorHandler, multerErrorHandler } from "./handlers/errors";
 import { mapsPostHandlers } from "./handlers/maps/post";
-import { mapsGetHandler } from "./handlers/maps/get";
+import * as trpcExpress from "@trpc/server/adapters/express";
+import * as trpc from "@trpc/server";
+import { appRouter, createTRPCContext } from "./trpc/routers";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,9 +17,9 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(helmet());
 app.use(express.json());
+app.use("/trpc", trpcExpress.createExpressMiddleware({ router: appRouter, createContext: createTRPCContext }));
 
 app.post("/api/v1/maps", mapsPostHandlers);
-app.get("/api/v1/maps", mapsGetHandler);
 
 app.use(multerErrorHandler);
 app.use(genericErrorHandler);
