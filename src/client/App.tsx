@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import styles from "./App.module.css";
 import MapFileUpload from "./components/MapFileUpload";
 import MapWrapper from "./components/MapWrapper";
@@ -10,13 +10,12 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 const selectedMapAtom = atom<EventMap | null>(null);
 
+const queryClient = new QueryClient();
+const trpcClient = trpc.createClient({
+  url: "/trpc",
+});
+
 const App: FC = () => {
-  const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useState(() =>
-    trpc.createClient({
-      url: "/trpc",
-    })
-  );
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
