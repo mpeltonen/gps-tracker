@@ -18,7 +18,7 @@ export const mapsPostHandlers = [
     const { file: mapFile } = req;
 
     const errorResponse = (msg: string): MapUploadResponse => ({ error: msg });
-    const okResponse = (fileName: string): MapUploadResponse => ({ name: fileName });
+    const okResponse = (fileName: string): MapUploadResponse => ({ id: fileName });
 
     try {
       if (!mapFile) {
@@ -51,7 +51,7 @@ const handleFile = async (mapFile: Express.Multer.File) => {
       if (fileName === "files/tile_0_0.jpg") {
         entry.pipe(fs.createWriteStream(`${unzipDir}/${mapFile.filename}.jpg`));
       } else if (fileName === "doc.kml") {
-        const metadata = transformKmlToJsonMetadata(await entry.buffer());
+        const metadata = await transformKmlToJsonMetadata(await entry.buffer());
         await fs.writeFileSync(`${unzipDir}/${mapFile.filename}.json`, JSON.stringify(metadata, null, 2));
         entry.autodrain();
       } else {

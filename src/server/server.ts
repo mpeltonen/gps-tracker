@@ -6,20 +6,22 @@ import { mapsPostHandlers } from "./handlers/maps/post";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import * as trpc from "@trpc/server";
 import { appRouter, createTRPCContext } from "./trpc/routers";
+import { mapGetHandler } from "./handlers/maps/get";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.disable("x-powered-by");
-
-if (process.env.NODE_ENV === "production") {
-  serveClient(app);
-}
 
 app.use(helmet());
 app.use(express.json());
 app.use("/trpc", trpcExpress.createExpressMiddleware({ router: appRouter, createContext: createTRPCContext }));
 
 app.post("/api/v1/maps", mapsPostHandlers);
+app.get("/api/v1/maps/:fileName", mapGetHandler);
+
+if (process.env.NODE_ENV === "production") {
+  serveClient(app);
+}
 
 app.use(multerErrorHandler);
 app.use(genericErrorHandler);
