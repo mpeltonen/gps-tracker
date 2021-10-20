@@ -7,7 +7,7 @@ interface Props {
   selectedMapAtom: PrimitiveAtom<EventMap | null>;
 }
 
-const MapList: FC<Props> = ({ selectedMapAtom }) => {
+const MapSelector: FC<Props> = ({ selectedMapAtom }) => {
   const [, setSelectedMap] = useAtom(selectedMapAtom);
 
   const eventMaps = trpc.useQuery(["getMaps"]);
@@ -32,4 +32,4 @@ const MapList: FC<Props> = ({ selectedMapAtom }) => {
   );
 };
 
-export default MapList;
+export default MapSelector;

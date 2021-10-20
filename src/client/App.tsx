@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./App.module.css";
 import MapFileUpload from "./components/MapFileUpload";
 import MapWrapper from "./components/MapWrapper";
-import MapList from "./components/MapList";
+import MapSelector from "./components/MapSelector";
 import { atom } from "jotai";
 import { EventMap } from "../shared/schemas";
 import { trpc } from "./utils/trpc";
@@ -21,7 +21,7 @@ const App: FC = () => {
       <QueryClientProvider client={queryClient}>
         <div className={styles.container}>
           <MapFileUpload />
-          <MapList selectedMapAtom={selectedMapAtom} />
+          <MapSelector selectedMapAtom={selectedMapAtom} />
           <MapWrapper selectedMapAtom={selectedMapAtom} />
         </div>
       </QueryClientProvider>
