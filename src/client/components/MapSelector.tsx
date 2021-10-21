@@ -14,9 +14,7 @@ const MapSelector: FC<Props> = ({ selectedMapAtom }) => {
 
   const onSelectedMapChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    if (e) {
-      setSelectedMap({ id: value });
-    }
+    setSelectedMap(value ? { id: value } : null);
   };
 
   return (
