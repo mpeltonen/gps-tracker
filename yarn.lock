@@ -5335,6 +5335,11 @@ execa@^4.0.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
+exif-js@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/exif-js/-/exif-js-2.3.0.tgz#9d10819bf571f873813e7640241255ab9ce1a814"
+  integrity sha1-nRCBm/Vx+HOBPnZAJBJVq5zhqBQ=
+
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -5805,6 +5810,11 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+
+glfx@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/glfx/-/glfx-0.0.4.tgz#1b776dc748c081994624b0af3b5638403de78f4d"
+  integrity sha1-G3dtx0jAgZlGJLCvO1Y4QD3nj00=
 
 glob-parent@^3.1.0:
   version "3.1.0"
@@ -7561,6 +7571,21 @@ latest-version@^5.1.0:
   integrity sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==
   dependencies:
     package-json "^6.3.0"
+
+leaflet-distortableimage@^0.21.7:
+  version "0.21.7"
+  resolved "https://registry.yarnpkg.com/leaflet-distortableimage/-/leaflet-distortableimage-0.21.7.tgz#3b78227d51615bff17b0e5269e7b9563c067ca7e"
+  integrity sha512-hy6MGbbJTic/iDjTvmn/hAVrZ9wkJ6Vs1yXOxk066YxC4675kswkTfmMKGllO8wYxEadoSCD+Xqgqwq0Xyce7A==
+  dependencies:
+    exif-js "^2.3.0"
+    glfx "0.0.4"
+    leaflet-toolbar "0.4.0-alpha.2"
+    webgl-distort "0.0.2"
+
+leaflet-toolbar@0.4.0-alpha.2, leaflet-toolbar@^0.4.0-alpha.2:
+  version "0.4.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/leaflet-toolbar/-/leaflet-toolbar-0.4.0-alpha.2.tgz#ab58092d65b3dd158fb874c3f7e36b7ebdb994f8"
+  integrity sha512-g1KeU3DYGUOwXTS0vKIgJ8KgY0h/2B0qENNQUSYMFtSY2yzwaHWMbDyhDbk+aO8LgJ1iOX4fUt2bh1sYZbpmmQ==
 
 leaflet@^1.7.1:
   version "1.7.1"
@@ -12032,6 +12057,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webgl-distort@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/webgl-distort/-/webgl-distort-0.0.2.tgz#80d2f61efc4aece28e7a1ff1375e14aac6d06f36"
+  integrity sha1-gNL2HvxK7OKOeh/xN14UqsbQbzY=
 
 webidl-conversions@^5.0.0:
   version "5.0.0"
