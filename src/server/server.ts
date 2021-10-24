@@ -6,6 +6,7 @@ import { mapsPostHandlers } from "./handlers/maps/post";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter, createTRPCContext } from "./trpc/routers";
 import { mapGetHandler } from "./handlers/maps/get";
+import { start as startTeltonika } from "./gpstracker/teltonika";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -34,3 +35,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
+startTeltonika();
