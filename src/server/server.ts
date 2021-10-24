@@ -1,10 +1,9 @@
-import express, { Express } from "express";
+import express from "express";
 import helmet from "helmet";
 import path from "path";
 import { genericErrorHandler, multerErrorHandler } from "./handlers/errors";
 import { mapsPostHandlers } from "./handlers/maps/post";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import * as trpc from "@trpc/server";
 import { appRouter, createTRPCContext } from "./trpc/routers";
 import { mapGetHandler } from "./handlers/maps/get";
 
@@ -20,7 +19,12 @@ app.post("/api/v1/maps", mapsPostHandlers);
 app.get("/api/v1/maps/:fileName", mapGetHandler);
 
 if (process.env.NODE_ENV === "production") {
-  serveClient(app);
+  // In dev mode, this part is served by CRA dev server
+  const clientBuildDir = path.join(process.cwd() + "/build/client");
+  app.use(express.static(clientBuildDir));
+  app.get("/*", function (Ignored, res) {
+    res.sendFile(path.join(clientBuildDir, "index.html"));
+  });
 }
 
 app.use(multerErrorHandler);
@@ -30,10 +34,3 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
-function serveClient(app: Express) {
-  const clientBuildDir = path.join(process.cwd() + "/build/client");
-  app.use(express.static(clientBuildDir));
-  app.get("/*", function (Ignored, res) {
-    res.sendFile(path.join(clientBuildDir, "index.html"));
-  });
-}
