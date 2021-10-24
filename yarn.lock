@@ -1794,27 +1794,27 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@trpc/client@9.10.1-alpha.5", "@trpc/client@^9.10.1-alpha.5":
-  version "9.10.1-alpha.5"
-  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-9.10.1-alpha.5.tgz#14db18ef684d4008a2be8923df8bfdf37154fbb9"
-  integrity sha512-G8TNeNoA0Xj/abybto5HjlMjccKvALFeVJ++qZnZF+aV0VJH+VfqWUBcaenCEVM+d6IEfNGHbsGgO93DnXB3CA==
+"@trpc/client@9.10.1", "@trpc/client@^9.10.1":
+  version "9.10.1"
+  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-9.10.1.tgz#cebf3ff2966a02e9a0220eb1e439e17fbd402580"
+  integrity sha512-SABrnpyLjidZVA65wFnOCFPPdE4ZoGPZXK22X1lXRm6po6H6TgDMNTtvRtQfYeEeVXQeEs7x127PBGyiZbWQPA==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/server" "9.10.1-alpha.5"
+    "@trpc/server" "9.10.1"
 
-"@trpc/react@^9.10.1-alpha.5":
-  version "9.10.1-alpha.5"
-  resolved "https://registry.yarnpkg.com/@trpc/react/-/react-9.10.1-alpha.5.tgz#144d7fd1d10b7a23158ed3c3182994e7b19de599"
-  integrity sha512-WKpz2KKpG1N9ddzBl4xA2eHj4WCw7jxlSb7/fj+fqExo4UHRqG0KE9eIqYUOE92fyprGq7FvvXMiy0+/bvo/bw==
+"@trpc/react@^9.10.1":
+  version "9.10.1"
+  resolved "https://registry.yarnpkg.com/@trpc/react/-/react-9.10.1.tgz#27a5851157237a5a598ecc4a8afd6cacf4223988"
+  integrity sha512-FTqHBzP2BZdGsbDllVXEjiQiJXQVmGARNdaDUmVIVtO9wrpwrGK3iI8rC9SWCdKsg2IjKT6X7ynkCq2qAeXJWQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "9.10.1-alpha.5"
-    "@trpc/server" "9.10.1-alpha.5"
+    "@trpc/client" "9.10.1"
+    "@trpc/server" "9.10.1"
 
-"@trpc/server@9.10.1-alpha.5", "@trpc/server@^9.10.1-alpha.5":
-  version "9.10.1-alpha.5"
-  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-9.10.1-alpha.5.tgz#f1dd2d7bfb7e9b875a9595366a469257bcf1139c"
-  integrity sha512-P30gonb2AU1jYD7sVV7EUcZ0gtC64RPZvNYq/RU3zt8ybxU/6zYaPRi6xoubYfmZuvYGGixFxz/L8dKq8vVgYg==
+"@trpc/server@9.10.1", "@trpc/server@^9.10.1":
+  version "9.10.1"
+  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-9.10.1.tgz#17ff6eae0a4596382dd9d6c1f2768390abe47936"
+  integrity sha512-nYKlAF2kwhazPZBHnCSwX/qciZBIt36VuiBVULvxsiZe1cYR9qEgVLkaDB/jYNFvi6oMkWQj2UZnHSxmhESjjg==
   dependencies:
     tslib "^2.1.0"
 
@@ -2154,6 +2154,13 @@
     "@types/webpack-sources" "*"
     anymatch "^3.0.0"
     source-map "^0.6.0"
+
+"@types/ws@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.2.0.tgz#75faefbe2328f3b833cb8dc640658328990d04f3"
+  integrity sha512-cyeefcUCgJlEk+hk2h3N+MqKKsPViQgF5boi9TTHSK+PoR9KWBb/C5ccPcDyAqgsbAYHTwulch725DV84+pSpg==
+  dependencies:
+    "@types/node" "*"
 
 "@types/xml2js@^0.4.9":
   version "0.4.9"
@@ -12480,6 +12487,11 @@ ws@^7.4.6:
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.5.tgz#8b4bc4af518cfabd0473ae4f99144287b33eb881"
   integrity sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w==
+
+ws@^8.2.3:
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
+  integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
 xdg-basedir@^4.0.0:
   version "4.0.0"

@@ -14,3 +14,12 @@ export const MapUploadResponseSchema = z.union([
 ]);
 
 export type MapUploadResponse = z.infer<typeof MapUploadResponseSchema>;
+
+export const TrackerLocationSchema = z.object({
+  ts: z.number(),
+  lat: z.number(),
+  lon: z.number(),
+  trackerId: z.string(),
+});
+
+export type TrackerLocation = z.infer<typeof TrackerLocationSchema>;
