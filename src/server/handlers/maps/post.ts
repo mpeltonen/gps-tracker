@@ -1,9 +1,11 @@
 import multer from "multer";
 import { NextFunction, Request, Response } from "express";
 import fs from "fs";
-import { MapUploadResponse } from "../../../shared/schemas";
+import { MapUploadResponse, TrackerLocationSchema } from "../../../shared/schemas";
 import * as unzipper from "unzipper";
 import { parseStringPromise } from "xml2js";
+import EventEmitter from "events";
+import { z } from "zod";
 
 const upload = multer({
   dest: "uploads",
@@ -11,6 +13,30 @@ const upload = multer({
     fileSize: 10 * 1024 * 1024,
   },
 });
+
+const TraccarSchema = z.object({
+  id: z.string(),
+  timestamp: z.string(),
+  lat: z.string(),
+  lon: z.string(),
+});
+
+export const traccarPostHandler = (ee: EventEmitter) => (req: Request, res: Response) => {
+  const traccarData = TraccarSchema.parse(req.query);
+  const trackerLocation = TrackerLocationSchema.parse({
+    trackerId: traccarData.id,
+    ts: Number(traccarData.timestamp) * 1000,
+    lat: Number(traccarData.lat),
+    lon: Number(traccarData.lon),
+  });
+  console.log(
+    `Location update from Traccar client ${traccarData.id}: Time: ${new Date(trackerLocation.ts).toLocaleString("fi")}, Latitude: ${
+      traccarData.lat
+    }, Longitude: ${traccarData.lon}`
+  );
+  ee.emit("trackerLocationUpdate", trackerLocation);
+  res.status(201);
+};
 
 export const mapsPostHandlers = [
   upload.single("mapFile"),

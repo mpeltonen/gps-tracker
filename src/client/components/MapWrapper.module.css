@@ -1,3 +1,24 @@
 .mapContainer {
   height: 90vh;
 }
+
+.divIcon {
+  width: 7px;
+  height: 7px;
+  display: block;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.divIconHtml {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.divIconHtmlLabel {
+  position: relative;
+  top: -4px;
+  left: 17px;
+  font-weight: bold;
+}

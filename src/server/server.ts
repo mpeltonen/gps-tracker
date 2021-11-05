@@ -2,7 +2,7 @@ import express from "express";
 import helmet from "helmet";
 import path from "path";
 import { genericErrorHandler, multerErrorHandler } from "./handlers/errors";
-import { mapsPostHandlers } from "./handlers/maps/post";
+import { mapsPostHandlers, traccarPostHandler } from "./handlers/maps/post";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter, createTRPCContext } from "./trpc/routers";
 import { mapGetHandler } from "./handlers/maps/get";
@@ -22,6 +22,8 @@ app.use("/trpc", trpcExpress.createExpressMiddleware({ router: appRouter(ee), cr
 
 app.post("/api/v1/maps", mapsPostHandlers);
 app.get("/api/v1/maps/:fileName", mapGetHandler);
+
+app.post("/traccar", traccarPostHandler(ee));
 
 if (process.env.NODE_ENV === "production") {
   // In dev mode, this part is served by CRA dev server
